@@ -1,0 +1,19 @@
+services:
+  cloud-hospital:
+    build: .
+    container_name: cloud-hospital
+    ports:
+      - "5000:5000"
+    volumes:
+      - cloud-hospital-data:/app/data
+    networks:
+      - cloud-hospital-network
+    restart: unless-stopped
+
+volumes:
+  cloud-hospital-data:
+    external: true
+
+networks:
+  cloud-hospital-network:
+    external: true
