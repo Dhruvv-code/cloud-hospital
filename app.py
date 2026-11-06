@@ -5,9 +5,11 @@ import os
 
 app = Flask(__name__)
 
-DATA_FILE = "/app/data/appointments.json"
+DATA_FILE = os.environ.get(
+	"DATA_FILE",
+	"/app/data/appointments.json"
+)
 
-os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
 
 
 def load_appointments():
@@ -21,6 +23,9 @@ def load_appointments():
 
 
 def save_appointments():
+    os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
+
+
     with open(DATA_FILE, "w") as file:
         json.dump(appointments, file, indent=4)
 

@@ -20,7 +20,10 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements-dev.txt
 
       - name: Check Python syntax
         run: python -m compileall -q app.py
+
+      - name: Run automated tests
+        run: pytest -v
