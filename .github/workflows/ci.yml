@@ -1,3 +1,4 @@
+
 name: Cloud Hospital CI
 
 on:
@@ -35,9 +36,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Docker image
-      uses: docker/build-push-action@v6
-      with:
-        context: .
-        file: ./dockerfile
-        push: true
-        tags: dhruvvcodee/cloud-hospital:latest
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./dockerfile
+          push: true
+          tags: dhruvvcodee/cloud-hospital:latest
+
