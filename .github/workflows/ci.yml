@@ -27,3 +27,6 @@ jobs:
 
       - name: Run automated tests
         run: pytest -v
+
+      - name: Build Docker image
+        run: docker build -f dockerfile -t cloud-hospital:ci .
